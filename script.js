@@ -3,7 +3,9 @@ import gsap from "gsap";
 const bl = gsap.timeline();
 const element = document.querySelector(".ball");
 const b1 = "linear-gradient(217deg, rgba(158, 66, 66, 0.9), rgba(255,0,0,0) 70.71%),  linear-gradient(127deg, rgba(82, 163, 82, 0.61), rgba(0,255,0,0) 70.71%), linear-gradient(336deg, rgba(105, 105, 153, 0.9), rgba(69, 69, 211, 0.34) 70.71%)";
-const b2 = "linear-gradient(var(--base-deg, 17deg), rgba(255,0,0,.7), rgba(255,0,0,0) 70.71%), linear-gradient(calc(var(--base-deg, 17deg) + 183deg), rgba(226, 46, 91, 0.9), rgba(243, 197, 137, 0.86) 70.71%),  linear-gradient(calc(var(--base-deg, 17deg) + 319deg), rgba(223, 161, 110, 0.8), rgba(125, 125, 241, 0.1) 70.71%)";
+const b2 = "linear-gradient(var(--base-deg, 17deg), rgba(255,0,0,0.7), rgba(255,0,0,0) 70.71%), linear-gradient(calc(var(--base-deg, 17deg) + 183deg), rgba(226, 46, 91, 0.9), rgba(243, 197, 137, 0.86) 70.71%),  linear-gradient(calc(var(--base-deg, 17deg) + 319deg), rgba(223, 161, 110, 0.8), rgba(125, 125, 241, 0.1) 70.71%)";//, #000000";
+//const b2 = "linear-gradient(var(--base-deg, 17deg), rgba(255,0,0,1), rgba(255,0,0,1) 70.71%), linear-gradient(calc(var(--base-deg, 17deg) + 183deg), rgba(226, 46, 91, 1), rgba(243, 197, 137, 1) 70.71%),  linear-gradient(calc(var(--base-deg, 17deg) + 319deg), rgba(223, 161, 110, 1), rgba(125, 125, 241, 1) 70.71%), #000000";
+
 const hover = gsap.timeline({ paused: true, overwrite: "auto" });
 
 
@@ -35,13 +37,16 @@ bl.set(".ball",
     }, 0
 ).to(".ball", {
     scale:2,
-    background:b2,
-    //backgroundColor:"#BB2345",
     color: "#FFFFFF",
-
+    backgroundImage:b2,
+    backgroundColor: "#000000", 
     onComplete: () => {
-        element.addEventListener("mouseenter", () => hover.play());
-        element.addEventListener("mouseleave", () => hover.reverse());
+        element.addEventListener("mouseenter", () => {
+            hover.play()
+        });
+        element.addEventListener("mouseleave", () => {
+            hover.reverse()
+        });
     }
 });
 bl.to(".ball",{
@@ -88,7 +93,19 @@ bl.set(".shadow",
 }, "<")
 
 
-
+bl.set(".brush_stroke", {
+    top: "70%",     
+    left: "50%",
+    scale: 0,
+}, 0).to(".brush_stroke", {
+    duration: 1,
+    x:"-28vw",
+    // y:"5vw",
+    scale: 1,
+}, 0).to(".brush_stroke", {
+    autoAlpha: 1,
+    duration: 2,
+})
 
 
 //via @jack
