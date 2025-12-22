@@ -98,6 +98,7 @@ window.addEventListener("mousemove", (e) => {
           cy: 10   
       },
       duration: 2,
+      force3D: true,
       stagger: {
           each: 0.15,
           repeat: -1,

@@ -161,10 +161,9 @@ else if (isMobile || isTablet) {
         xPercent: -50, 
         duration: 2,
         top: "50%",
-        yPercent: -50,
         scale:2,
     }, 0).to(".shadow2", {
-        yPercent: 20,
+        yPercent: -30,
         autoAlpha: 1,
         ease: "power2.out"
     })
