@@ -19,32 +19,33 @@
     background-color: aquamarine;
     display: grid;
     aspect-ratio: 1;
-    width:5vw;
+    width:clamp(60px, 12vw, 100px);
     position: absolute;
     font-family: "Lato", sans-serif;
-    font-size:medium;
+    font-size:1rem;
     font-weight: 700;
     place-items: center;
     text-align: center;
     z-index: 2;
-    top: 20%;    
-    left: 50%;
     color: "#ffffff00";
     pointer-events: auto;
+
 }
+
 .shadow{
   background-color: rgba(0, 0, 0, 0.2);
   border-radius: 50%;
-  width: 5vw;
-  height: 1.5vw;
+  width: clamp(60px, 12vw, 100px);
+  height: clamp(20px, 4vw , 33px);
   position: absolute;
   filter: blur(4px);
 }
 
+
 .shadow2{
   background-color: rgba(0, 0, 0, 0.2);
   border-radius: 50%;
-  width: 5vw;
+  width: clamp(60px, 12vw, 100px);
   aspect-ratio: 1;
   position: absolute;
   filter: blur(4px);
@@ -52,6 +53,23 @@
   visibility: hidden;
   opacity: 0;
 }
+
+@media (min-width:1024px) {
+  .ball{
+    width: 5vw;
+  }
+  .shadow{
+    width: 5vw;
+    height: 1.5vw
+  }
+  .shadow2{
+    width: 5vw;
+  }
+}
+
+
+
+
 
 .brush_stroke{
   opacity:0;
